@@ -1,7 +1,28 @@
+# version: 2.1
+# jobs:
+#   build:
+#     steps:
+#       - checkout # check out the code in the project directory
+#       - run npm install # run the `echo` command
+#     -run: npm run test
+
+
 version: 2.1
+
+# Define the jobs we want to run for this project
 jobs:
   build:
     steps:
-      - checkout # check out the code in the project directory
-      - run npm install # run the `echo` command
-    -run: npm run test
+      - checkout
+    - run: echo "this is the build job"
+  test:
+    steps:
+      - checkout
+    - run: echo "this is the test job"
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test
