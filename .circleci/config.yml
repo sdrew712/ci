@@ -5,12 +5,12 @@ version: 2.1
 
 jobs:
   testing:
-  docker:
-    - image: cimg/node:16.8.0
-  steps:
-    - checkout
-    - run: npm install
-    - run: npm run test
+    docker:
+      - image: cimg/node:16.8.0
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test
 workflows:
   app-tests:
     jobs:
